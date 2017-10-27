@@ -1,6 +1,8 @@
 import smbus
 import time
 
+arr = [[],[],[]]f
+
 channel = 1
 address = 0x68
 bus = smbus.SMBus(channel)
@@ -16,8 +18,15 @@ while True:
     x = (2.0 / float(0x8000)) * (data[0] << 8 | data[1])
     y = (2.0 / float(0x8000)) * (data[2] << 8 | data[3])
     z = (2.0 / float(0x8000)) * (data[4] << 8 | data[5])
+
+    arr[0].append(x)
+    arr[1].append(y)
+    arr[2].append(z)
+
     print ("X:%+8.7f" % x)
     print ("Y:%+8.7f" % y)
     print ("Z:%+8.7f" % z)
     time.sleep(1)
+
+print(arr)
 
