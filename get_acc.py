@@ -28,7 +28,7 @@ def main():
             print ("X:%+8.7f" % x)
             print ("Y:%+8.7f" % y)
             print ("Z:%+8.7f" % z)
-            time.sleep(1)
+            time.sleep(0.1)
     except KeyboardInterrupt:
         print("ok")
         return arr
