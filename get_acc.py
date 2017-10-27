@@ -1,7 +1,7 @@
 import smbus
 import time
 
-arr = [[],[],[]]f
+arr = [[],[],[]]
 
 channel = 1
 address = 0x68
@@ -27,5 +27,4 @@ while True:
     print ("Y:%+8.7f" % y)
     print ("Z:%+8.7f" % z)
     time.sleep(1)
-
     print(arr)
