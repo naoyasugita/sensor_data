@@ -1,6 +1,7 @@
 import smbus
 import time
 
+channel = 1
 address = 0x68
 bus = smbus.SMBus(channel)
 
