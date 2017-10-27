@@ -1,7 +1,7 @@
 import smbus
 import time
 
-flg = False
+#flg = False
 
 arr = [[],[],[]]
 
@@ -15,7 +15,7 @@ time.sleep(0.1)
 bus.write_i2c_block_data(address, 0x6B, [0x00])
 time.sleep(0.1)
 
-while flg:
+while True:
     data = bus.read_i2c_block_data(address, 0x3B ,6)
     x = (2.0 / float(0x8000)) * (data[0] << 8 | data[1])
     y = (2.0 / float(0x8000)) * (data[2] << 8 | data[3])
