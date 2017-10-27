@@ -1,9 +1,6 @@
 import smbus
 import time
-
-#flg = False
-
-arr = [[],[],[]]
+import numpy as np
 
 channel = 1
 address = 0x68
@@ -16,6 +13,7 @@ bus.write_i2c_block_data(address, 0x6B, [0x00])
 time.sleep(0.1)
 
 def main():
+    arr = [[],[],[]]
     try:
         while True:
             data = bus.read_i2c_block_data(address, 0x3B ,6)
@@ -30,7 +28,16 @@ def main():
             print ("X:%+8.7f" % x)
             print ("Y:%+8.7f" % y)
             print ("Z:%+8.7f" % z)
-            # print(arr)
             time.sleep(1)
     except KeyboardInterrupt:
+        print("ok")
         return arr
+
+def convert(arr):
+    data = np.array(arr)
+    return data
+
+arr = main()
+data = convert(arr)
+
+np.save('test.npy', data)
