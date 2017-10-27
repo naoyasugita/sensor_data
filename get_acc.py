@@ -28,5 +28,4 @@ while True:
     print ("Z:%+8.7f" % z)
     time.sleep(1)
 
-print(arr)
-
+    print(arr)
